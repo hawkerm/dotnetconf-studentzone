@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://h8upxmc6j4uv"]
+[gd_scene load_steps=9 format=3 uid="uid://h8upxmc6j4uv"]
 
 [ext_resource type="Texture2D" uid="uid://dafepn7jx0574" path="res://icon.svg" id="1_4nwa5"]
 [ext_resource type="Script" path="res://Main.cs" id="1_ji8xp"]
 [ext_resource type="Script" path="res://Ball.cs" id="2_q1rcx"]
 [ext_resource type="PackedScene" uid="uid://pe6ooqmvb6iv" path="res://Paddle.tscn" id="3_ky01c"]
+[ext_resource type="Script" path="res://Display.cs" id="5_vfop3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7k7ll"]
 friction = 0.0
@@ -46,3 +47,24 @@ shape = SubResource("RectangleShape2D_2ryro")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(583.5, 676)
 shape = SubResource("RectangleShape2D_2ryro")
+
+[node name="Display" type="CanvasLayer" parent="." node_paths=PackedStringArray("Player1Score", "Player2Score")]
+script = ExtResource("5_vfop3")
+Player1Score = NodePath("Player1Score")
+Player2Score = NodePath("Player2Score")
+
+[node name="Player1Score" type="Label" parent="Display"]
+offset_left = 292.0
+offset_top = 5.0
+offset_right = 365.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 128
+text = "0"
+
+[node name="Player2Score" type="Label" parent="Display"]
+offset_left = 782.0
+offset_top = 5.0
+offset_right = 855.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 128
+text = "0"

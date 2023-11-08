@@ -52,10 +52,10 @@ public partial class Paddle : CharacterBody2D
 		// other physics objects, like the Ball. Note though, that this default method and script was setup for a 2D platforming game
 		// so there are some unintended consequences for using this directly. We saw this at the very end of the session.
 		// We should use MoveAndCollide instead, see https://docs.godotengine.org/en/stable/tutorials/physics/using_character_body_2d.html
-		MoveAndSlide();
+		//MoveAndSlide();
 
 		// To see the difference, you can comment out MoveAndSlide above and try this MoveAndCollide code instead:
-		/*var collision = MoveAndCollide(velocity * (float)delta);
+		var collision = MoveAndCollide(velocity * (float)delta);
 		// See if we have a collision and if it was with the Ball
         if (collision != null && collision.GetCollider() is Ball ball)
         {
@@ -63,6 +63,6 @@ public partial class Paddle : CharacterBody2D
 			// We could also add a bit more magnitude here to give it more oomph every hit
 			// We could also add a bit of a random rotation to make it less predictable, lots of creative options.
 			ball.LinearVelocity = ball.LinearVelocity.Bounce(collision.GetNormal());
-		}*/
+		}
 	}
 }
